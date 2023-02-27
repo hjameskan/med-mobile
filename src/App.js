@@ -7,9 +7,9 @@ import StartScreen from './screens/StartScreen';
 const App = () => {
   return (
     <Provider store={store}>
-      <StartScreen/>
-    </Provider>  
-    );
+      <StartScreen />
+    </Provider>
+  );
 }
 registerRootComponent(App);
 
