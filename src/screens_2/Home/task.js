@@ -2,10 +2,10 @@
  * Copyright (c) 2023 Xiaxi Shen
  */
 
-import React, {Component} from 'react';
-import {Text, StyleSheet, View} from 'react-native';
-import Title from './title';
-import Content from './content';
+import React, { Component } from "react";
+import { Text, StyleSheet, View } from "react-native";
+import Title from "./title";
+import Content from "./content";
 
 /**
  * A React Native class component that renders a task item with a title and content.
@@ -29,7 +29,7 @@ export default class Task extends Component {
   }
 
   toggle = () => {
-    this.setState(prevState => ({showContent: !prevState.showContent}));
+    this.setState((prevState) => ({ showContent: !prevState.showContent }));
   };
   render() {
     return (
@@ -44,7 +44,7 @@ export default class Task extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8EAED',
+    backgroundColor: "#E8EAED",
   },
   tasksWrapper: {
     paddingTop: 40,
@@ -52,9 +52,9 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 40,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     // textAlign: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
 
     marginBottom: 20,
   },
