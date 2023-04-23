@@ -5,11 +5,13 @@ import { registerRootComponent } from "expo";
 import MainTab from "./routes";
 import { NavigationContainer } from "@react-navigation/native";
 import Index from "./index";
-// import StartScreen from './screens/StartScreen';
+// import Notification from "./notifications/notification";
+// import StartScreen from "./screens/StartScreen";
 
 const App = () => {
   return (
     <NavigationContainer>
+      {/* <Index /> */}
       <Index />
     </NavigationContainer>
   );
