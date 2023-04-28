@@ -30,7 +30,7 @@ export default class Title extends Component {
       <View style={styles.item}>
         <View style={styles.itemLeft}>
           <Image source={this.imgPath} style={styles.pill} />
-          <Text style={styles.itemText}>{this.props.text}</Text>
+          <Text style={styles.itemText}>{this.props.pillName}</Text>
         </View>
         <View style={styles.PrscriptionContent}>
           {/* <Image source={this.imgPath} style={styles.tick_cross} />
@@ -39,9 +39,15 @@ export default class Title extends Component {
             <Image source={this.down} style={styles.tick_cross} />
           </TouchableOpacity> */}
           <View>
-            <Text>Purpose: Alzheimer's{"\n"}</Text>
-            <Text>Directions: 1 pill, before breakfast{"\n"}</Text>
-            <Text>Prescribed by: Dr.John Doe, May 12 2021</Text>
+            <Text>
+              {this.props.purpose}
+              {"\n"}
+            </Text>
+            <Text>
+              {this.props.directions}
+              {"\n"}
+            </Text>
+            <Text>{this.props.doctor}</Text>
           </View>
         </View>
       </View>

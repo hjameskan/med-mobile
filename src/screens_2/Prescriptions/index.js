@@ -10,8 +10,20 @@ export default class PrescriptionsScreen extends Component {
           <Text style={styles.sectionTitle}>Prescription</Text>
           {/* <Text style={styles.date}>Apr 11, 2023</Text> */}
           <View style={styles.items}>
-            <Task style={styles.tasks} time="Donepezil" />
-            <Task style={styles.tasks} time="Heparin" />
+            <Task
+              style={styles.tasks}
+              pillName="Donepezil"
+              purpose="Purpose: Alzheimer's"
+              directions="Directions: 1 pill, before breakfast"
+              doctor="Prescribed by: Dr.John Doe, May 12 2021"
+            />
+            <Task
+              style={styles.tasks}
+              pillName="Heparin"
+              purpose="Purpose: Alzheimer's"
+              directions="Directions: 1 pill, before breakfast"
+              doctor="Prescribed by: Dr.John Doe, May 12 2021"
+            />
           </View>
         </View>
       </View>
