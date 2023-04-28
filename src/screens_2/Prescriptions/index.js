@@ -1,23 +1,17 @@
-/**
- * Copyright (c) 2023 Xiaxi Shen
- */
-
 import React, { Component } from "react";
 import { Text, StyleSheet, View } from "react-native";
+import Task from "../../components/PrescriptionComponents";
 
-import Task from "../../components/TaskComponents";
-export default class Home extends Component {
+export default class PrescriptionsScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Tracking</Text>
-          <Text style={styles.date}>Apr 11, 2023</Text>
+          <Text style={styles.sectionTitle}>Prescription</Text>
+          {/* <Text style={styles.date}>Apr 11, 2023</Text> */}
           <View style={styles.items}>
-            <Task style={styles.tasks} time="MORNING" />
-            <Task style={styles.tasks} time="AFTERNOON" />
-            <Task style={styles.tasks} time="EVENING" />
-            <Task style={styles.tasks} time="NIGHT" />
+            <Task style={styles.tasks} time="Donepezil" />
+            <Task style={styles.tasks} time="Heparin" />
           </View>
         </View>
       </View>
@@ -39,13 +33,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     // textAlign: 'center',
     justifyContent: "center",
-
-    marginBottom: 20,
+    marginBottom: 0,
   },
-  date: {
-    fontSize: 30,
+  items: {
+    marginTop: 0,
   },
   tasks: {
-    marginTop: 30,
+    marginTop: 15,
   },
 });

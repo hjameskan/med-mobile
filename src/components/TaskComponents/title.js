@@ -6,10 +6,24 @@ import React, { Component } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+/**
+ * A React Native class component that displays a task item with a title, and allows the user to toggle the visibility of the task content.
+ *
+ * Props:
+ * - text (string): The text content of the task item.
+ * - toggleContent (function): A callback function that is called when the user taps the title, to toggle the visibility of the task content.
+ *
+ * State:
+ * - None
+ *
+ * Methods:
+ * - None
+ *
+ */
 export default class Title extends Component {
-  imgPath = require("./images/red_cross.png");
-  down = require("./images/down.png");
-  up = require("./images/up.png");
+  imgPath = require("../../screens_2/Home/images/green_tick.png");
+  down = require("../../screens_2/Home/images/down.png");
+  up = require("../../screens_2/Home/images/up.png");
 
   render() {
     return (
@@ -20,7 +34,7 @@ export default class Title extends Component {
         </View>
         <View style={styles.sectionImage}>
           <Image source={this.imgPath} style={styles.tick_cross} />
-          <Text>Missed</Text>
+          <Text>Taken</Text>
           <TouchableOpacity onPress={this.props.toggleContent}>
             <Image source={this.down} style={styles.tick_cross} />
           </TouchableOpacity>
@@ -36,11 +50,12 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: "#FFF",
     padding: 15,
-    borderRadius: 10,
+    // borderRadius: 10,
+    borderRadius: 0,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 20,
+    marginBottom: 0,
   },
   itemLeft: {
     flexDirection: "row",

@@ -33,7 +33,7 @@ export default class Task extends Component {
   };
   render() {
     return (
-      <View style={styles.items}>
+      <View style={this.props.style}>
         <Title text={this.props.time} toggleContent={this.toggle} />
         {this.state.showContent && <Content />}
       </View>
