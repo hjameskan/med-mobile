@@ -21,9 +21,9 @@ import { TouchableOpacity } from "react-native-gesture-handler";
  *
  */
 export default class Title extends Component {
-  imgPath = require("../../screens_2/Home/images/green_tick.png");
-  down = require("../../screens_2/Home/images/down.png");
-  up = require("../../screens_2/Home/images/up.png");
+  imgPath = require("../../assets/icons/green_tick.png");
+  down = require("../../assets/icons/down.png");
+  up = require("../../assets/icons/up.png");
 
   render() {
     return (

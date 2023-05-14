@@ -45,7 +45,7 @@ const LoginScreen = ({ login }) => {
 
   const handleLogin = async () => {
     await login(username, password);
-    navigation.navigate("Welcome");
+    navigation.navigate("MainTabs");
     console.log("Login button pressed");
   };
   return (

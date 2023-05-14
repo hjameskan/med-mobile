@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View } from "react-native";
-import Task from "../../components/PrescriptionComponents";
+import Task from "../components/PrescriptionCard";
 
 export default class PrescriptionsScreen extends Component {
   render() {

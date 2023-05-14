@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-import Task from "../../components/TaskComponents";
+import Task from "../components/TaskComponents";
 export default class Home extends Component {
   render() {
     return (

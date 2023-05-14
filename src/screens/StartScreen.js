@@ -6,7 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import LoginScreen from './LoginScreen';
 import WelcomeScreen from './WelcomeScreen';
+import MainTabs from './MainTabsScreen';
 
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Stack = createStackNavigator();
 
 const StartScreen = () => {
@@ -15,6 +17,11 @@ const StartScreen = () => {
       <Stack.Navigator>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen
+          name="MainTabs"
+          component={MainTabs}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

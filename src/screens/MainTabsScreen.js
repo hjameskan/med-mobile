@@ -1,20 +1,16 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import * as React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-// import HomeScreen from "../screens/HomeScreen.js";
 import HomeScreenContainer from "../containers/HomeScreenContainer.js";
-import HistoryScreen from "../screens/HistoryScreen.js";
-import PrescriptionsScreen from "../screens/PrescriptionsScreen.js";
-import MoreScreen from "../screens/MoreScreen.js";
+import HistoryScreen from "./HistoryScreen.js";
+import PrescriptionsScreen from "./PrescriptionsScreen.js";
+import MoreScreen from "./MoreScreen.js";
 
 const Tab = createBottomTabNavigator();
 
-export default class index extends Component {
-  render() {
+function MainTabs() {
     return (
       <Tab.Navigator
-        // ({route}) != route
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -39,7 +35,6 @@ export default class index extends Component {
         <Tab.Screen name="More" component={MoreScreen} />
       </Tab.Navigator>
     );
-  }
 }
 
-const styles = StyleSheet.create({});
+export default MainTabs;
