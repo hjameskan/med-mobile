@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { login } from "../redux/actions/authActions";
+import { fetchPrescriptions } from "../redux/actions/prescriptionsActions";
+import { fetchDrugsTakenRecord } from "../redux/actions/drugsTakenRecordActions";
 
 const styles = StyleSheet.create({
   container: {
@@ -38,15 +40,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = ({ login }) => {
+const LoginScreen = ({ login, fetchPrescriptions, fetchDrugsTakenRecord }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
   const handleLogin = async () => {
-    await login(username, password);
+    const userId = await login(username, password);
+    // await dispatch(fetchPrescriptions(userId));
+    await fetchPrescriptions(userId);
+    await fetchDrugsTakenRecord(userId);
     navigation.navigate("MainTabs");
-    console.log("Login button pressed");
   };
   return (
     <View style={styles.container}>
@@ -74,4 +78,4 @@ const LoginScreen = ({ login }) => {
   );
 };
 
-export default connect(null, { login })(LoginScreen);
+export default connect(null, { login, fetchPrescriptions, fetchDrugsTakenRecord })(LoginScreen);

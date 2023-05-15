@@ -1,35 +1,41 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import React, { useEffect } from "react";
+import { Text, StyleSheet, View, ScrollView } from "react-native";
+import { format } from 'date-fns';
 import Task from "../components/PrescriptionCard";
 
-export default class PrescriptionsScreen extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Prescription</Text>
-          {/* <Text style={styles.date}>Apr 11, 2023</Text> */}
-          <View style={styles.items}>
+// const PrescriptionsScreen = (props) => {
+//   console.log('props', props);
+  // useEffect(() => {
+  //   fetchPrescriptions();
+  // }, [fetchPrescriptions]);
+
+const PrescriptionsScreen = ({ prescriptions, fetchPrescriptions }) => {
+  // useEffect(() => {
+  //   fetchPrescriptions();
+  // }, [fetchPrescriptions]);
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.tasksWrapper}>
+        <Text style={styles.sectionTitle}>Prescription</Text>
+        <View style={styles.items}>
+          {prescriptions.map((prescription, index) => (
             <Task
+              key={index}
               style={styles.tasks}
-              pillName="Donepezil"
-              purpose="Purpose: Alzheimer's"
-              directions="Directions: 1 pill, before breakfast"
-              doctor="Prescribed by: Dr.John Doe, May 12 2021"
+              pillName={prescription.drug.name}
+              purpose={`Purpose: Alzheimer's`}
+              directions={`Directions: ${prescription.frequency} time(s) per day, ${prescription.dosage} pill(s) each time`}
+              doctor={`Prescribed by: ${prescription.doctor.username}, ${format(new Date(prescription.createdAt), "MMMM dd yyyy")}`} // format(new Date(dateString), 'MM dd yy HH:mm:ss')
             />
-            <Task
-              style={styles.tasks}
-              pillName="Heparin"
-              purpose="Purpose: Alzheimer's"
-              directions="Directions: 1 pill, before breakfast"
-              doctor="Prescribed by: Dr.John Doe, May 12 2021"
-            />
-          </View>
+          ))}
         </View>
       </View>
-    );
-  }
-}
+    </ScrollView>
+  );
+};
+
+export default PrescriptionsScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -43,7 +49,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 40,
     fontWeight: "bold",
-    // textAlign: 'center',
     justifyContent: "center",
     marginBottom: 0,
   },

@@ -1,45 +1,29 @@
-/**
- * Copyright (c) 2023 Xiaxi Shen
- */
-
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Title from "./title";
-import Content from "./content";
 
-/**
- * A React Native class component that renders a task item with a title and content.
- *
- * Props:
- * - time (string): The time of day that the task is scheduled for (e.g. 'MORNING').
- *
- * State:
- * - showContent (boolean): A flag that indicates whether the task content should be visible or hidden.
- *
- * Methods:
- * - toggle(): A method that toggles the visibility of the task content when the user taps the title.
- *
- */
-export default class Task extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showContent: false,
-    };
-  }
+const Task = ({ style, time, items = [], mode }) => {
+  const [showContent, setShowContent] = useState(false);
 
-  toggle = () => {
-    this.setState((prevState) => ({ showContent: !prevState.showContent }));
+  const toggle = () => {
+    setShowContent((prevShowContent) => !prevShowContent);
   };
-  render() {
-    return (
-      <View style={this.props.style}>
-        <Title text={this.props.time} toggleContent={this.toggle} />
-        {this.state.showContent && <Content />}
-      </View>
-    );
-  }
-}
+
+  return (
+    <View style={style}>
+      <Title text={time} toggleContent={toggle} />
+      {
+        mode === "HOME"
+          ? showContent && items.length 
+            ? items.map((item, index) => <Text style={styles.listItem} key={index}>{`${item.drug.name}, ${item.dosage} pill(s)`}</Text>)
+            : null
+          : showContent && items.length 
+            ? items.map((item, index) => <Text style={styles.listItem} key={index}>{`${item.drug.name}, ${item.prescription.dosage} pill(s)`}</Text>)
+            : null
+      }
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -53,9 +37,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 40,
     fontWeight: "bold",
-    // textAlign: 'center',
     justifyContent: "center",
-
     marginBottom: 20,
   },
   date: {
@@ -64,4 +46,14 @@ const styles = StyleSheet.create({
   items: {
     marginTop: 20,
   },
+  listItem: {
+    fontSize: 16,
+    color: "#333",
+    // marginBottom: 10,
+    backgroundColor: "#f8f8f8",
+    padding: 10,
+    borderRadius: 5,
+  },
 });
+
+export default Task;

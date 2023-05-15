@@ -8,7 +8,7 @@ import Home from "../screens/HomeScreen";
 
 const mapStateToProps = (state) => {
   return {
-    tasks: state.tasks
+    prescriptions: state.userPrescription.prescriptions
   };
 };
 
