@@ -3,16 +3,19 @@
  */
 
 import React, { Component } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Button } from "react-native";
 
 import Task from "../../components/TaskComponents";
+import DispenseButton from "./dispensebutton";
+
 export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Tracking</Text>
+          {/* <Text style={styles.sectionTitle}>Tracking</Text> */}
           <Text style={styles.date}>Apr 11, 2023</Text>
+          <DispenseButton text='Dispense Medication'/>
           <View style={styles.items}>
             <Task style={styles.tasks} time="MORNING" />
             <Task style={styles.tasks} time="AFTERNOON" />
@@ -20,6 +23,7 @@ export default class Home extends Component {
             <Task style={styles.tasks} time="NIGHT" />
           </View>
         </View>
+        
       </View>
     );
   }
@@ -44,6 +48,7 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 30,
+    fontWeight: "bold",
   },
   tasks: {
     marginTop: 30,

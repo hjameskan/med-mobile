@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Task from "../../components/PrescriptionComponents";
+import Contraindication from "./contraindication";
 
 export default class PrescriptionsScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Prescription</Text>
+          {/* <Text style={styles.sectionTitle}>Prescription</Text> */}
           {/* <Text style={styles.date}>Apr 11, 2023</Text> */}
+          
           <View style={styles.items}>
+            <Contraindication text='Monitor closely when taking Donepenzil and Ramelton due to potential for interaction'/>
             <Task
               style={styles.tasks}
               pillName="Donepezil"

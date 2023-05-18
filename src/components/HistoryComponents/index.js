@@ -4,9 +4,8 @@
 
 import React, { Component } from "react";
 import { Text, StyleSheet, View } from "react-native";
-import Title from "./prescription";
-
-// import Content from "./content";
+import Title from "./title";
+import Content from "./content";
 
 /**
  * A React Native class component that renders a task item with a title and content.
@@ -35,12 +34,8 @@ export default class Task extends Component {
   render() {
     return (
       <View style={this.props.style}>
-        <Title
-          pillName={this.props.pillName}
-          purpose={this.props.purpose}
-          directions={this.props.directions}
-          doctor={this.props.doctor}
-        />
+        <Title text={this.props.time} toggleContent={this.toggle} />
+        {this.state.showContent && <Content />}
       </View>
     );
   }
@@ -64,7 +59,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   date: {
-    fontSize: 30,
+    fontSize: 100,
   },
   items: {
     marginTop: 20,

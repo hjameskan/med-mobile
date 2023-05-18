@@ -23,18 +23,18 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 export default class Title extends Component {
   imgPath = require("../../screens_2/Home/images/green_tick.png");
   down = require("../../screens_2/Home/images/down1.png");
-  up = require("../../screens_2/Home/images/up.png");
+  up = require("../../screens_2/Home/images/up1.png");
 
   render() {
     return (
       <View style={styles.item}>
         <View style={styles.itemLeft}>
           <View style={styles.square}></View>
-          <Text style={styles.itemText}>{this.props.text}</Text>
+          <Text style={styles.item}>{this.props.text}</Text>
         </View>
         <View style={styles.sectionImage}>
-          <Image source={this.imgPath} style={styles.tick_cross} />
-          <Text>Taken</Text>
+          {/* <Image source={this.imgPath} stylse={styles.tick_cross} /> */}
+          {/* <Text>Taken</Text> */}
           <TouchableOpacity onPress={this.props.toggleContent}>
             <Image source={this.down} style={styles.tick_cross} />
           </TouchableOpacity>
@@ -49,13 +49,15 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: "#FFF",
-    padding: 15,
-    // borderRadius: 10,
-    borderRadius: 0,
+    padding: 5,
+    borderRadius: 10,
+    // borderRadius: 0,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 0,
+    marginTop: 20,
+    fontSize: 20,
   },
   itemLeft: {
     flexDirection: "row",
@@ -69,6 +71,7 @@ const styles = StyleSheet.create({
     opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
+    marginLeft: 15,
   },
   itemText: {
     // limit it to a range of square

@@ -20,7 +20,7 @@ export default class index extends Component {
             if (route.name === "Home") {
               iconName = focused ? "home" : "home-outline";
             } else if (route.name === "Prescriptions") {
-              iconName = focused ? "notifications" : "notifications-outline";
+              iconName = focused ? "bandage" : "bandage-outline";
             } else if (route.name === "History") {
               iconName = focused ? "bandage" : "bandage-outline";
             } else if (route.name === "More") {
