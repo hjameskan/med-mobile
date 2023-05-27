@@ -32,9 +32,10 @@ export default class Task extends Component {
     this.setState((prevState) => ({ showContent: !prevState.showContent }));
   };
   render() {
+    flag = false;
     return (
       <View style={this.props.style}>
-        <Title text={this.props.time} toggleContent={this.toggle} />
+        <Title text={this.props.time} toggleContent={this.toggle} flag={flag} />
         {this.state.showContent && <Content />}
       </View>
     );

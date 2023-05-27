@@ -22,10 +22,13 @@ import { TouchableOpacity } from "react-native-gesture-handler";
  */
 export default class Title extends Component {
   imgPath = require("../../screens_2/Home/images/green_tick.png");
+  imgPath2 = require("../../screens_2/Home/images/red_cross.png");
   down = require("../../screens_2/Home/images/down.png");
   up = require("../../screens_2/Home/images/up.png");
 
   render() {
+    // const img = this.props.flag ? this.imgPath : this.imgPath2;
+    // img = imgPath;
     return (
       <View style={styles.item}>
         <View style={styles.itemLeft}>
@@ -33,7 +36,10 @@ export default class Title extends Component {
           <Text style={styles.itemText}>{this.props.text}</Text>
         </View>
         <View style={styles.sectionImage}>
-          <Image source={this.imgPath} style={styles.tick_cross} />
+          <Image
+            source={this.props.flag ? this.imgPath : this.imgPath2}
+            style={styles.tick_cross}
+          />
           <Text>Taken</Text>
           <TouchableOpacity onPress={this.props.toggleContent}>
             <Image source={this.down} style={styles.tick_cross} />
