@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import Title from "./title";
 
-const Task = ({ style, time, items = [], mode }) => {
+const Task = ({ style, time, items = [], mode, flag = false }) => {
   const [showContent, setShowContent] = useState(false);
 
   const toggle = () => {
@@ -11,16 +11,24 @@ const Task = ({ style, time, items = [], mode }) => {
 
   return (
     <View style={style}>
-      <Title text={time} toggleContent={toggle} />
-      {
-        mode === "HOME"
-          ? showContent && items.length 
-            ? items.map((item, index) => <Text style={styles.listItem} key={index}>{`${item.drug.name}, ${item.dosage} pill(s)`}</Text>)
-            : null
-          : showContent && items.length 
-            ? items.map((item, index) => <Text style={styles.listItem} key={index}>{`${item.drug.name}, ${item.prescription.dosage} pill(s)`}</Text>)
-            : null
-      }
+      <Title text={time} toggleContent={toggle} flag={flag} />
+      {mode === "HOME"
+        ? showContent && items.length
+          ? items.map((item, index) => (
+              <Text
+                style={styles.listItem}
+                key={index}
+              >{`${item.drug.name}, ${item.dosage} pill(s)`}</Text>
+            ))
+          : null
+        : showContent && items.length
+        ? items.map((item, index) => (
+            <Text
+              style={styles.listItem}
+              key={index}
+            >{`${item.drug.name}, ${item.prescription.dosage} pill(s)`}</Text>
+          ))
+        : null}
     </View>
   );
 };
